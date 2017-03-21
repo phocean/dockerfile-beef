@@ -2,6 +2,10 @@ FROM phocean/msf
 
 MAINTAINER Phocean <jc@phocean.net>
 
+# install nodejs
+RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
+RUN apt-get install -y nodejs
+
 # set locales
 RUN locale-gen en_US.UTF-8
 RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \

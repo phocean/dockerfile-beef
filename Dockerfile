@@ -9,7 +9,7 @@ ENV LC_ALL en_US.UTF-8
 WORKDIR /opt
 
 # Base packages
-RUN apt-get update && apt-get -y install git bundler \
+RUN apt-get update && apt-get -y install git bundler nodejs \
     zlib1g-dev libsqlite3-dev && \
     rm -rf /var/lib/apt/lists/* && \
     locale-gen en_US.UTF-8 && \
@@ -21,6 +21,10 @@ RUN apt-get update && apt-get -y install git bundler \
     cd beef && \
     bundle install
 
+ADD config.yaml beef/config.yaml
+
 EXPOSE 3000
 
-CMD /usr/local/bin/init.sh
+WORKDIR /opt/beef
+
+CMD ./beef

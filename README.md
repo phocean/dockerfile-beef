@@ -21,7 +21,7 @@ $ docker build -t phocean/beef .
 You can run it that way:
 
 ```
-$ docker run --rm -it --net=host -v $HOME/.msf4:/root/.msf4:Z -v /tmp/msf:/tmp/data:Z --name=beef phocean/beef"
+$ docker run --rm -it --net=host -v $HOME/.msf4:/root/.msf4:Z -v /tmp/msf:/tmp/data:Z --name=beef phocean/beef
 ```
 
 Mounting the volumes is optional but will ease the integration with the embedded Metasploit framework.
